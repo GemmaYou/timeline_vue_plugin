@@ -39,13 +39,14 @@
         <b-form-group
           label="email"
           label-for="email-input"
-          invalid-feedback="Email is required"
+          invalid-feedback="Invalid email format"
           :state="emailState"
         >
           <b-form-input
             id="email-input"
             :value="focus.email"
             :state="emailState"
+            pattern="^[A-Za-z0-9]+((-[A-Za-z0-9]+)|(\.[A-Za-z0-9]+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$"
             required
           ></b-form-input>
         </b-form-group>
@@ -69,7 +70,7 @@
 
 <script>
 export default {
-  props: ['id','focus', 'type'],
+  props: ['id', 'focus', 'type'],
   data() {
     return {
       nameState: null,
@@ -118,19 +119,19 @@ export default {
     },
     handleSubmit: function() {
       // Exit when the form isn't valid
-      if ( this.checkFormValidity() ) {
+      if (this.checkFormValidity()) {
         let title = document.getElementById('title-input').value;
         let name = document.getElementById('name-input').value;
         let email = document.getElementById('email-input').value;
         let bref = document.getElementById('bref-input').value;
         let data = {
-            title: title,
-            name: name,
-            email: email,
-            bref: bref,
-        }
+          title: title,
+          name: name,
+          email: email,
+          bref: bref,
+        };
         if (this.type === 'Add') {
-          this.$timeline.$emit('add' , data);
+          this.$timeline.$emit('add', data);
         } else if (this.type === 'Edit') {
           this.$timeline.$emit('edit', this.id, data);
         }
@@ -148,3 +149,40 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/scss/main.scss';
+
+/deep/ .modal-dialog {
+  .modal-content {
+    .modal-header {
+      background-color: $yellow;
+      color: white;
+      button {
+        background-color: #00000000;
+        border: none;
+        color: white;
+      }
+    }
+    .modal-body{
+        #datetime-div{
+            margin-bottom: 5px;
+        }
+        .form-group{
+            margin: 5px 0;
+        }
+    }
+    .modal-footer {
+      button {
+        &:nth-child(2) {
+          background-color: $black;
+          border: 1px solid $black;
+        }
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+</style>

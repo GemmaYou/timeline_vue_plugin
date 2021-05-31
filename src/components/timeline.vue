@@ -57,9 +57,7 @@ export default {
       }
     },
     load: function() {
-      if ( this.perItem < this.data.length) {
-        this.$emit('load', this.perItem);
-      }
+      this.$emit('load', this.perItem);
     },
     focusData: function(id) {
       let result;
@@ -98,7 +96,6 @@ export default {
       display: flex;
       flex-direction: column;
       .act {
-        // height: 300px; //待刪除
         border-radius: 10px;
         margin: 10px auto;
         position: relative;
@@ -116,7 +113,6 @@ export default {
             position: absolute;
             width: 4px;
             height: 100%;
-            // height: 100px;
             background-color: grey;
           }
           .act-triangle {
@@ -135,7 +131,6 @@ export default {
           margin-top: -25px;
           width: 250px;
           background-color: #efefef;
-          // position: absolute;
           @include top-border-radius;
           @include bottom-border-radius;
           .act-header {
@@ -170,7 +165,7 @@ export default {
                 line-height: 1rem;
               }
               .act-edit {
-                background-color: #333333;
+                background-color: $black;
                 border: none;
                 color: #fff;
                 border-radius: 5px;
@@ -198,10 +193,6 @@ export default {
       .odd {
         .act-number {
           background-color: $green;
-          // .act-middle {
-          //   top: 25px;
-          //   left: 10.5px;
-          // }
           .act-triangle {
             top: 0;
             left: -30px;
@@ -209,14 +200,10 @@ export default {
           }
         }
         .act-middle {
-          // left: 10.5px;
           left: 287.5px;
         }
         .act-content {
           margin-right: 330px;
-          // margin: -25px -280px 0 0;
-          // top: 0;
-          // right: 53px;
           .act-header {
             background-color: $green;
           }
@@ -234,10 +221,6 @@ export default {
       .even {
         .act-number {
           background-color: $yellow;
-          // .act-middle {
-          //   top: 25px;
-          //   right: 10.5px;
-          // }
           .act-triangle {
             top: 0;
             right: -30px;
@@ -246,13 +229,9 @@ export default {
         }
         .act-middle {
           right: 287.5px;
-          // right: 10.5px;
         }
         .act-content {
           margin-left: 330px;
-          // margin: -25px 0 0 330px;
-          // top: 0;
-          // left: 53px;
           .act-header {
             background-color: $yellow;
           }

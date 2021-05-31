@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import App from './components/TimelinePlugin.vue';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
 import { BootstrapVue, IconsPlugin, ModalPlugin } from 'bootstrap-vue';
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,7 +8,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 Vue.use( BootstrapVue )
 Vue.use( IconsPlugin )
 Vue.use( ModalPlugin )
-Vue.use( VueAxios, axios )
 
 const optionsDefaults = {
   data: [],
@@ -69,7 +66,9 @@ export default {
         },
         // 點擊 load 按鈕，新增perItem
         load: function ( perItem ) {
-          this.perItem = perItem + options.perItem;
+          if ( this.perItem < this.data.length) {
+            this.perItem = perItem + options.perItem;
+          }
         },
         addData: function ( data ) {
           let copy = Object.assign( [], this.data );

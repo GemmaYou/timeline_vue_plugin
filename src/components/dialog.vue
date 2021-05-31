@@ -37,7 +37,7 @@
           ></b-form-input>
         </b-form-group>
         <b-form-group
-          label="email"
+          label="Email"
           label-for="email-input"
           invalid-feedback="Invalid email format"
           :state="emailState"
@@ -51,7 +51,7 @@
           ></b-form-input>
         </b-form-group>
         <b-form-group
-          label="bref"
+          label="Bref"
           label-for="bref-input"
           invalid-feedback="Bref is required"
           :state="brefState"

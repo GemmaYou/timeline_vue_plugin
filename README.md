@@ -53,7 +53,7 @@ Vue.use(Timeline, {
 - Default: `empty object`
 - note: 所有 user 資料
 
-### perPage
+### perItem
 
 - Type: `Number`
 - Default: `4`
